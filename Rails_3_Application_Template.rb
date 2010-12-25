@@ -699,6 +699,8 @@ file 'app/stylesheets/partials/_hacks.sass', <<-SASS.gsub(/^ {2}/, '')
     .notice, .alert
       padding: 10px
       +border-radius(6px)
+      p
+        margin-bottom: 0em
 
   #main
     form
