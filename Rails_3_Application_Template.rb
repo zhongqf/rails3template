@@ -659,7 +659,66 @@ file 'app/stylesheets/partials/_tables.sass', <<-SASS.gsub(/^ {2}/, '')
       font-family: sans-serif
 SASS
 
+append_file 'app/stylesheets/style.sass', "@import partials/hacks\n"
+file 'app/stylesheets/partials/_hacks.sass', <<-SASS.gsub(/^ {2}/, '')
+  // Hacks
+  h1
+    font-size: 3em
+    line-height: 1
+    margin-bottom: 0.5em
 
+  h2
+    font-size: 2em
+    margin-bottom: 0.75em
+
+  h3
+    font-size: 1.5em
+    line-height: 1
+    margin-bottom: 1em
+
+  h4
+    font-size: 1.2em
+    line-height: 1.25
+    margin-bottom: 1.25em
+
+  h5
+    font-size: 1em
+    font-weight: bold
+    margin-bottom: 1.5em
+
+  p
+    margin-bottom: 1.5em
+
+  .buttons
+    button,a.button
+      -webkit-border-radius: 0.3em
+      -moz-border-radius: 0.3em
+      border-radius: 0.3em
+
+  #flash
+    .notice, .alert
+      padding: 10px
+      +border-radius(6px)
+
+  #main
+    form
+      fieldset
+        +border-radius(4px)
+      label
+        display: inline
+      .checkbox_group
+        input
+          vertical-align: baseline
+      input, textarea
+        padding: 4px
+        margin: 0.5em 0
+        border: 1px solid #b5ceff
+
+  table.vertical
+    td:first-child
+      +border_radius(4px)
+
+SASS
 
 #apply "#{@partials}/_layouts.rb"       # Must be after boilerplate since it modifies HAML files
 # Set up default haml layout
