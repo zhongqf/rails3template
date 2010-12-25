@@ -662,6 +662,11 @@ SASS
 append_file 'app/stylesheets/style.sass', "@import partials/hacks\n"
 file 'app/stylesheets/partials/_hacks.sass', <<-SASS.gsub(/^ {2}/, '')
   // Hacks
+  body
+    font-size: 12px
+    font-family: arail
+    line-height: 1.5
+  
   h1
     font-size: 3em
     line-height: 1
@@ -688,6 +693,10 @@ file 'app/stylesheets/partials/_hacks.sass', <<-SASS.gsub(/^ {2}/, '')
 
   p
     margin-bottom: 1.5em
+    
+  nav
+    p
+      margin-bottom: 0em
 
   .buttons
     button,a.button
