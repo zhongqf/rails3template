@@ -664,71 +664,114 @@ file 'app/stylesheets/partials/_hacks.sass', <<-SASS.gsub(/^ {2}/, '')
   // Hacks
   body
     font-size: 12px
-    font-family: arail
+    font-family: arial
     line-height: 1.5
   
   h1
     font-size: 3em
     line-height: 1
     margin-bottom: 0.5em
-
+  
   h2
     font-size: 2em
     margin-bottom: 0.75em
-
+  
   h3
     font-size: 1.5em
     line-height: 1
     margin-bottom: 1em
-
+  
   h4
     font-size: 1.2em
     line-height: 1.25
     margin-bottom: 1.25em
-
+  
   h5
     font-size: 1em
     font-weight: bold
     margin-bottom: 1.5em
-
+  
   p
     margin-bottom: 1.5em
     
   nav
     p
       margin-bottom: 0em
-
-  .buttons
-    button,a.button
-      -webkit-border-radius: 0.3em
-      -moz-border-radius: 0.3em
-      border-radius: 0.3em
-
+      
+  blockquote, q
+    color: #666
+    font-style: italic
+    margin: 1.5em
+  
+  ul, ol
+    margin: 0px 1.5em 1.5em 0px
+    padding-left: 1.5em
+  
+  dl
+    margin: 0px 0px 1.5em
+    display: block
+    dt
+      font-weight: bold
+      display: block
+    dd
+      margin-left: 1.5em
+      display: block
+  
+  
+  
   #flash
     .notice, .alert
       padding: 10px
       +border-radius(6px)
       p
         margin-bottom: 0em
-
+  
   #main
     form
+  
       fieldset
         +border-radius(4px)
       label
         display: inline
+        font-size: 100%
       .checkbox_group
         input
           vertical-align: baseline
+  
       input, textarea
         padding: 4px
         margin: 0.5em 0
         border: 1px solid #b5ceff
-
+        
+      select, input, textarea, button
+        font-size: 99%
+        font-family: arial
+        vertical-align: baseline
+      
+      input:invalid, textarea:invalid
+        -webkit-box-shadow: none
+        +border-radius(0px)
+        background-color: #FFE3EE
+  
+  .buttons
+    button,a.button
+      -webkit-border-radius: 0.3em
+      -moz-border-radius: 0.3em
+      border-radius: 0.3em 
+  
+  
+  table
+    margin-bottom: 1.4em
+    width: 100%
+    border-collapse: separate
+    display: table
+  
+  table, td, th
+    vertical-align: middle
+  
   table.vertical
     td:first-child
       +border_radius(4px)
-
 SASS
 
 #apply "#{@partials}/_layouts.rb"       # Must be after boilerplate since it modifies HAML files
@@ -1500,12 +1543,13 @@ file 'app/views/demos/elements.html.haml', <<-HAML.gsub(/^ {2}/, '')
         %div
           %label{:for => "f5"} Textarea:
           %textarea#f5{:cols => "30", :rows => "5"} Textarea text
-        %div
-          %label{:for => "f6"} Input Button:
-          %input#f6{:type => "button", :value => "button text"}/
-        %div
-          %label{:for => "f7"} Submit Button:
-          %input#f7{:type => "submit", :value => "button text"}/
+        .buttons
+          %div
+            %label{:for => "f6"} Input Button:
+            %button.positive#f6{:type => "button", :value => "button text"} button text
+          %div
+            %label{:for => "f7"} Submit Button:
+            %button.normal#f7{:type => "submit", :value => "button text"} button text
     / thx peter beverloo: http://peter.sh/examples/?/html/meter-progress.html
     %p#no-support{:style => "color: red; margin-bottom: 12px;"}
       Your browser does not support these elements yet! Consider downloading a
