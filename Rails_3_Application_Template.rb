@@ -728,7 +728,8 @@ file 'app/stylesheets/partials/_hacks.sass', <<-SASS.gsub(/^ {2}/, '')
   
   #main
     form
-  
+      margin-bottom: 2em  
+      
       fieldset
         +border-radius(4px)
       label
